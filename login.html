@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Bio-Data System</title>
+    <link rel="icon" href="BDS_Title.png" type="image/icon type">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm bg-warning navbar-light py-3">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <img src="BDS_Logo.png" alt="" width="60" height="60">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="nav navbar-nav mx-auto">
+                    <li class="nav-item"> <h1 style="font-family: monospace;" class="text-dark text-center">BIO - DATA SYSTEM</h1> </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav item">
+                        <a href="login.html" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav item">
+                        <a href="register.html" class="nav-link">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Body -->
+    <section class="bg-dark p-3 pt-4 text-light">
+        <div class="container">
+            <h2 class="text-center text-light pt-4">Login</h2>
+            <p class="lead text-center text-light pb-4">Login with Registered Email</p>
+            <div class="d-md-flex align-items-center justify-content-center">
+                <form class="pb-5">
+                    <div class="mb-3">
+                      <label for="email" class="form-label text">Email</label>
+                      <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" class="form-control">
+                    </div>
+                    <div class="text-center pt-3">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#login">Login</button> <br><br>
+                        <a class="text-light" href="register.html">New user? Register</a>
+                    </div>
+                    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p> <!-- Tab space to increase input field size-->
+                </form>
+            </div>
+        </div>
+    </section>
+    
+   <hr>
+
+   <!-- Modal -->
+   <div class="modal fade" id="login" tabindex="-1" aria-labelledby="loginLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title" id="loginLabel">Select Operation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class=" bg-dark text-center">
+                <a href="addBD.html">
+                    <button type="button" class="btn btn-warning mt-3 mb-3 text-center">Add Bio-Data</button>
+                </a>
+                <br>
+                <a href="viewBD.html">
+                    <button type="button" class="btn btn-warning mb-3 text-center">View Bio-Data</button>
+                </a>
+                <br>
+                <a href="editBD.html">
+                    <button type="button" class="btn btn-warning mb-3 text-center">Edit Bio-Data</button>
+                </a>
+            </div>
+        </div>
+        <div class="modal-footer bg-warning justify-content-center">
+            <img src="BDS_Logo.png" alt="" width="60" height="60">
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Footer -->
+    <footer class="p-5 bg-dark text-center text-light">
+        <div class="container">
+            <p class="lead pb-1">
+                Copyright @ 2021 Bio-Data System
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
