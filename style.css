@@ -1,0 +1,63 @@
+.viewFontSize {
+    font-size: 120%;
+}
+@media (max-width: 555px) {
+    .viewFontSize{
+        font-size: 110%;
+    }
+}
+@media (max-width: 475px) {
+    .viewFontSize{
+        font-size: 90%;
+    }
+}
+@media (max-width: 425px) {
+    .viewFontSize{
+        font-size: 75%;
+    }
+    .viewStudent{
+        width: 150px;
+    }
+    .viewLogo{
+        width: 70px;
+    }
+}
+@media (max-width: 400px) {
+    .viewFontSize{
+        font-size: 70%;
+    }
+    .viewStudent{
+        width: 100px;
+    }
+    .viewLogo{
+        width: 50px;
+    }
+    .viewText{
+        font-size: x-large;
+    }
+}
+@media (max-width: 375px) {
+    .viewFontSize{
+        font-size: 60%;
+    }
+    .viewLogo{
+        width: 50px;
+    }
+    .viewText{
+        font-size: x-large;
+    }
+}
+@media (max-width: 325px) {
+    .viewFontSize{
+        font-size: 40%;
+    }
+    .viewStudent{
+        width: 85px;
+    }
+    .viewLogo{
+        width: 50px;
+    }
+    .viewText{
+        font-size: x-large;
+    }
+}
