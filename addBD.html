@@ -47,22 +47,22 @@
                 Fill up your <span class="text-white">Bio-Data</span>
             </h2>
             <div class="d-flex align-items-center justify-content-center">
-                <form class="py-5">
+                <form class="py-5" action="add.php" method="post">
                     <div class="mb-3 text-light">
                         <label for="fname" class="form-label text">First Name</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="fname" required>
                     </div>
                     <div class="mb-3 text-light">
                         <label for="lname" class="form-label text">Last Name</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="lname" required>
                     </div>
                     <div class="mb-3 text-light">
                         <label for="dob" class="form-label text">Date Of Birth</label>
-                        <input type="date" class="form-control">
+                        <input type="date" class="form-control" name="dob" required>
                     </div>
                     <div class="mb-3 text-light">
                         <label for="age" class="form-label text">Age</label>
-                        <input type="number" class="form-control" value="20">
+                        <input type="number" class="form-control" value="20" name="age" required>
                     </div>
                     <div class="mb-3 text-light">
                         <label for="gender" class="form-label text">Gender</label>
@@ -75,46 +75,46 @@
                     </div>
                     <div class="mb-3 text-light">
                         <label for="height" class="form-label text">Height (in cm)</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="height" required>
                     </div>
                     <div class="mb-3 text-light">
                         <label for="weight" class="form-label text">Weight (in kg)</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="weight" required>
                     </div>
                     <div class="mb-3 text-light">
                         <label for="address" class="form-label text">Address</label>
-                        <textarea class="form-control"></textarea>
+                        <textarea class="form-control" name="addr" required></textarea>
                     </div>
                     <div class="mb-3 text-light">
                         <label for="mothertongue" class="form-label text">Mother Tongue</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="mt" required>
                     </div>
                     <div class="mb-3 text-light">
                         <label for="lang" class="form-label text">Languages Known</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="lk" required>
                     </div>
                     <div class="mb-3 text-light">
                         <label for="fathername" class="form-label text">Fathers' Name</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="faname" required>
                     </div>
                     <div class="mb-3 text-light">
                         <label for="fatheroccupation" class="form-label text">Fathers' Occupation</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="fo" required>
                     </div>
                     <div class="mb-3 text-light">
                         <label for="mothername" class="form-label text">Mothers' Name</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="moname" required>
                     </div>
                     <div class="mb-3 text-light">
                         <label for="motheroccupation" class="form-label text">Mothers' Occupation</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="mo" required>
                     </div>
                     <div class="mb-3 text-light form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="check" required>
                         <label class="form-check-label" for="exampleCheck1">I, hereby confirm that all the information submitted above is in my best knowledge.</label>
                     </div>
                     <div class="text-center">
-                        <button class="btn btn-primary">Submit</button>
+                        <input type="submit" class="btn btn-primary" value="Submit">
                     </div>
                 </form>
             </div>
