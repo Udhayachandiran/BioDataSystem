@@ -56,7 +56,6 @@
                         <div class="justify-content-between p-3"> 
                             <div class="text-center align-items-center viewFontSize"> <br>
                                 <img class="viewStudent mb-3 image-fluid" src="BDS_Title.png" alt="" width="200">
-                                <p class="px-4"> Upload Image : </p>
                                 <p class="px-4"> First Name : </p>
                                 <p class="px-4"> Last Name : </p>
                                 <p class="px-4"> Date Of Birth : </p>
