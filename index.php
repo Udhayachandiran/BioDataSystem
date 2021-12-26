@@ -1,3 +1,5 @@
+<?php session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,40 +14,61 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-sm bg-warning navbar-light py-3">
+
+    <nav class="navbar navbar-expand-md bg-warning navbar-light py-3">
         <div class="container">
             <a href="index.php" class="navbar-brand">
                 <img src="BDS_Logo.png" alt="" width="60" height="60">
             </a>
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse text-center" id="navmenu">
+            <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="nav navbar-nav mx-auto">
-                    <li class="nav-item"> <h1 style="font-family: monospace;" class="text-dark text-center">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; BIO - DATA SYSTEM</h1> </li>
+                    <li class="nav-item"> <h1 style="font-family: monospace;" class="text-dark text-center">BIO - DATA SYSTEM</h1> </li>
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav item">
-                        <a href="addBD.php" class="nav-link">Add Bio-Data</a>
+                        <a id="login" href="login.php" class="nav-link">Login</a>
                     </li>
                     <li class="nav item">
-                        <a href="viewBD.php" class="nav-link">View Bio-Data</a>
-                    </li>
-                    <li class="nav item">
-                        <a href="index.php" class="nav-link">Logout</a>
+                        <a id="register" href="register.php" class="nav-link">Register</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Body -->
-    <section class="bg-dark p-4 pt-5 text-dark">
-        <div class="container px-5">
-            <h2 class="text-center text-secondary">
-                ADMIN @ <span class="text-white">BDS</span>
-            </h2> <br>
+    <!-- Showcase -->
+    <section class="bg-warning text-secondary p-5 texr-center">
+        <div class="container">
+            <div class="d-sm-flex align-items-center justify-content-between">
+                <div>
+                    <h2>
+                        FILL OUT YOUR <br> <span class="text-dark h1">
+                            BIO - DATA
+                        </span>
+                    </h2>
+                    <br>
+                    <h3>
+                        To Fill :
+                        <p class="lead text-dark">
+                            1. Go to <a href="register.php" class="text-dark">Register</a> <br>
+                            2. Fill Your Details
+                        </p>
+                    </h3>
+                    <h3>
+                        To View :
+                        <!-- / Edit : -->
+                        <p class="lead text-dark">
+                            1. <a href="login.php" class="text-dark">Login</a> <br>
+                            2. To View -> Go to View <br>
+                            <!-- 3. To Edit -> Go to Edit -->
+                        </p>
+                    </h3>
+                </div>
+                <img class="image-fluid w-50 d-none d-sm-block" src="undraw_About_me_re_82bv.svg" alt="">
+            </div>
         </div>
     </section>
     
@@ -59,6 +82,8 @@
             </p>
         </div>
     </footer>
+
+    <hr>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

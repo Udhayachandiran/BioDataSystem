@@ -1,3 +1,14 @@
+<?php 
+    session_start();
+    $_SESSION["name"] = $_POST['uname'];
+    $username=$_POST['uname'];
+
+    require_once 'dbconn.php';
+
+    $sql="SELECT * FROM details WHERE name='$usname'";
+    $retval= mysqli_query($conn,$sql);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +25,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-warning navbar-light py-3">
         <div class="container">
-            <a href="index.html" class="navbar-brand">
+            <a href="index.php" class="navbar-brand">
                 <img src="BDS_Logo.png" alt="" width="60" height="60">
             </a>
 
@@ -27,13 +38,13 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav item">
-                        <a href="addBD.html" class="nav-link">Add Bio-Data</a>
+                        <a href="addBD.php" class="nav-link">Add Bio-Data</a>
                     </li>
                     <!-- <li class="nav item">
                         <a href="editBD.html" class="nav-link">Edit Bio-Data</a>
                     </li> -->
                     <li class="nav item">
-                        <a href="index.html" class="nav-link">Logout</a>
+                        <a href="index.php" class="nav-link">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -56,20 +67,25 @@
                         <div class="justify-content-between p-3"> 
                             <div class="text-center align-items-center viewFontSize"> <br>
                                 <img class="viewStudent mb-3 image-fluid" src="BDS_Title.png" alt="" width="200">
-                                <p class="px-4"> First Name : </p>
-                                <p class="px-4"> Last Name : </p>
-                                <p class="px-4"> Date Of Birth : </p>
-                                <p class="px-4"> Age : </p>
-                                <p class="px-4"> Gender : </p>
-                                <p class="px-4"> Height (in cm) : </p>
-                                <p class="px-4"> Weight (in kg) : </p>
-                                <p class="px-4"> Address : </p>
-                                <p class="px-4"> Mother Tongue : </p>
-                                <p class="px-4"> Languages Known : </p>
-                                <p class="px-4"> Fathers' Name : </p>
-                                <p class="px-4"> Mothers' Name : </p>
-                                <p class="px-4"> Fathers' Occupation : </p>
-                                <p class="px-4"> Mothers' Occupation : </p>
+                                <?php
+                                    if(mysqli_num_rows($retval) > 0){
+                                    while($row = mysqli_fetch_assoc($retval)){
+                                            echo "<p class='px-4'> First Name : {$row['name']}</p>";
+                                            echo "<p class='px-4'> Date Of Birth : {$row['dob']}</p>";
+                                            echo "<p class='px-4'> Age : {$row['age']}</p>";
+                                            echo "<p class='px-4'> Gender : {$row['gender']}</p>";
+                                            echo "<p class='px-4'> Height (in cm) : {$row['height']}</p>";
+                                            echo "<p class='px-4'> Weight (in kg) : {$row['weight']}</p>";
+                                            echo "<p class='px-4'> Address : {$row['addr']}</p>";
+                                            echo "<p class='px-4'> Mother Tongue : {$row['mt']}</p>";
+                                            echo "<p class='px-4'> Languages Known : {$row['lk']}</p>";
+                                            echo "<p class='px-4'> Fathers' Name : {$row['faname']}</p>";
+                                            echo "<p class='px-4'> Mothers' Name : {$row['moname']}</p>";
+                                            echo "<p class='px-4'> Fathers' Occupation : {$row['fo']}</p>";
+                                            echo "<p class='px-4'> Mothers' Occupation : {$row['mo']}</p>";
+                                        }
+                                    }
+                                ?>
                             </div>
                         </div>
                     </div>

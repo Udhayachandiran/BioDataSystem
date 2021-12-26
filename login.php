@@ -1,3 +1,5 @@
+<?php session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Bio-Data System</title>
     <link rel="icon" href="BDS_Title.png" type="image/icon type">
 </head>
@@ -14,7 +17,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md bg-warning navbar-light py-3">
         <div class="container">
-            <a href="index.html" class="navbar-brand">
+            <a href="index.php" class="navbar-brand">
                 <img src="BDS_Logo.png" alt="" width="60" height="60">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
@@ -26,10 +29,10 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav item">
-                        <a href="login.html" class="nav-link">Login</a>
+                        <a href="login.php" class="nav-link">Login</a>
                     </li>
                     <li class="nav item">
-                        <a href="register.html" class="nav-link">Register</a>
+                        <a href="register.php" class="nav-link">Register</a>
                     </li>
                 </ul>
             </div>
@@ -42,20 +45,44 @@
             <h2 class="text-center text-light pt-4">Login</h2>
             <p class="lead text-center text-light pb-4">Login with Registered Email</p>
             <div class="d-md-flex align-items-center justify-content-center">
-                <form class="pb-5">
+                <form class="pb-5" method="POST" action="login.inc.php">
                     <div class="mb-3">
-                      <label for="email" class="form-label text">Email</label>
-                      <input type="email" class="form-control" id="email" required>
+                      <label for="username" class="form-label text">Username</label>
+                      <input type="text" class="form-control" id="username" name="uname" required>
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input type="password" class="form-control" required>
+                      <input type="password" class="form-control" name="password" required>
                     </div>
                     <div class="text-center pt-3">
-                            <input type="submit" value="Login" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#login"><br><br>
-                        <a class="text-light" href="register.html">New user? Register</a>
+                            <input type="submit" value="Login" name="submit" class="btn btn-primary" ><br><br>
+                        <a class="text-light" href="register.php">New user? Register</a>
+                        <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+                        <?php 
+                            if(isset($_GET["error"])){
+                                if($_GET["error"]=="incorrectdet"){
+                                echo '<div class="alert">
+                                      <span class="closebtn">&times;</span> Incorrect details, user does not exists </div>
+                                      <script>
+                                            var close = document.getElementsByClassName("closebtn");
+                                            var i;
+    
+                                            for (i = 0; i < close.length; i++) {
+                                            close[i].onclick = function(){
+                                                var div = this.parentElement;
+                                                div.style.opacity = "0";
+                                                setTimeout(function(){ div.style.display = "none"; }, 600);
+                                            }
+                                            }
+                                          </script>';
+                                }
+                                if($_GET["error"]=="none"){
+                                    echo '<script> alert("Logged in successfully");  window.location.replace("addBD.php");</script>';
+                                    }
+                            } 
+                        ?>
                     </div>
-                    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p> <!-- Tab space to increase input field size-->
+                    <!--<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>  Tab space to increase input field size-->
                 </form>
             </div>
         </div>
@@ -63,8 +90,8 @@
     
    <hr>
 
-   <!-- Modal -->
-   <div class="modal fade" id="login" tabindex="-1" aria-labelledby="loginLabel" aria-hidden="true">
+  <!-- Modal 
+  <div class="modal fade" id="login" display="none" tabindex="-1" aria-labelledby="loginLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header bg-light">
@@ -73,26 +100,25 @@
         </div>
         <div class="modal-body">
             <div class=" bg-dark text-center">
-                <a href="addBD.html">
+                <a href="addBD.php">
                     <button type="button" class="btn btn-warning mt-3 mb-3 text-center">Add Bio-Data</button>
                 </a>
                 <br>
-                <a href="viewBD.html">
+                <a href="viewBD.php">
                     <button type="button" class="btn btn-warning mb-3 text-center">View Bio-Data</button>
                 </a>
                 <br>
-                <!-- <a href="editBD.html">
+                <a href="editBD.html">
                     <button type="button" class="btn btn-warning mb-3 text-center">Edit Bio-Data</button>
-                </a> -->
-            </div>
+                </a> 
+             </div>
         </div>
         <div class="modal-footer bg-warning justify-content-center">
             <img src="BDS_Logo.png" alt="" width="60" height="60">
         </div>
       </div>
     </div>
-   </div>
-
+   </div> -->
     <!-- Footer -->
     <footer class="p-5 bg-dark text-center text-light">
         <div class="container">
