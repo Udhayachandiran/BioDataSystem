@@ -1,4 +1,10 @@
 <?php session_start();
+    require_once 'functions.php';
+    //print_r($_SESSION);
+    if(isset($_SESSION['name'])) {
+        header("Location: loggedin.php"); 
+        exit; 
+    } 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +20,6 @@
 </head>
 <body>
     <!-- Navbar -->
-
     <nav class="navbar navbar-expand-md bg-warning navbar-light py-3">
         <div class="container">
             <a href="index.php" class="navbar-brand">
@@ -29,10 +34,10 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav item">
-                        <a id="login" href="login.php" class="nav-link">Login</a>
+                        <a id="login" href="login.php" class="nav-link"><strong>Login</strong></a>
                     </li>
                     <li class="nav item">
-                        <a id="register" href="register.php" class="nav-link">Register</a>
+                        <a id="register" href="register.php" class="nav-link"><strong>Register</strong></a>
                     </li>
                 </ul>
             </div>
@@ -53,16 +58,16 @@
                     <h3>
                         To Fill :
                         <p class="lead text-dark">
-                            1. Go to <a href="register.php" class="text-dark">Register</a> <br>
-                            2. Fill Your Details
+                            1. <a href="register.php" class="text-dark">Register</a> if you are a new user or <a href="login.php" class="text-dark">Login</a> if you are a existing user. <br> </br>
+                            2. Go to Add BD to fill your details.
                         </p>
                     </h3>
                     <h3>
                         To View :
                         <!-- / Edit : -->
                         <p class="lead text-dark">
-                            1. <a href="login.php" class="text-dark">Login</a> <br>
-                            2. To View -> Go to View <br>
+                            1. <a href="register.php" class="text-dark">Register</a> if you are a new user or <a href="login.php" class="text-dark">Login</a> if you are a existing user. <br> </br>
+                            2. Go to View BD to view your Bio-data. <br>
                             <!-- 3. To Edit -> Go to Edit -->
                         </p>
                     </h3>

@@ -1,3 +1,26 @@
+<?php session_start();
+//print_r($_SESSION);
+require_once 'dbconn.php';
+require_once 'functions.php';
+    $uname = $_SESSION['name'];
+    $sql="SELECT * FROM details WHERE usname='$uname';";
+    $retval= mysqli_query($conn,$sql);
+    
+    if(mysqli_num_rows($retval) > 0){
+        $_SESSION['existview'] = 'existview';
+    }
+    
+    if(isset($_GET['login'])){
+        sD();
+        header("Location: index.php"); // redirects them to homepage
+        exit;
+    }
+    
+    if(!isset($_SESSION['name'])) {
+        header("Location: index.php"); // redirects them to homepage
+        exit; 
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +50,7 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav item">
-                        <a id="login" href="index.html" class="nav-link">Logout</a>
+                        <a id="login" href="loggedin.php?login=out" class="nav-link"><strong>Logout</strong></a>
                     </li>
                 </ul>
             </div>
@@ -48,7 +71,7 @@
                     <h3>
                         To Add BioData :
                         <p class="lead text-dark">
-                            1. Go to <a href="addBD.html" class="text-dark">Add BD</a> <br>
+                            1. Go to <a href="addBD.php" class="text-dark">Add BD</a> <br>
                             2. Fill Your Details
                         </p>
                     </h3>

@@ -13,6 +13,7 @@
 
 if(isset($_POST["submit"])){
     require_once 'dbconn.php';
+    $usname=$_SESSION['name'];
     $name=$_POST['name'];
     $dob=$_POST['dob'];
     $age=$_POST['age'];
@@ -26,14 +27,19 @@ if(isset($_POST["submit"])){
     $fo=$_POST['fo'];
     $moname=$_POST['moname'];
     $mo=$_POST['mo'];
+    if(ctype_alpha($name) && ctype_alpha($mt) && ctype_alpha($lk) && ctype_alpha($faname) && ctype_alpha($fo) && ctype_alpha($moname) && ctype_alpha($mo)){
+        $sql="INSERT INTO details(usname,name,dob,age,gender,height,weight,addr,mt,lk,faname,fo,moname,mo) VALUES('$usname','$name','$dob',$age,'$gender',$height,$weight,'$addr','$mt','$lk','$faname','$fo','$moname','$mo')";
 
-    $sql="INSERT INTO details(name,dob,age,gender,height,weight,addr,mt,lk,faname,fo,moname,mo) VALUES('$name','$dob',$age,'$gender',$height,$weight,'$addr','$mt','$lk','$faname','$fo','$moname','$mo')";
-
-    if(mysqli_query($conn,$sql)){
-        echo "<script> window.alert('Inserted successfully'); window.location.replace('viewBD.php');</script>";
+        if(mysqli_query($conn,$sql)){
+            $_SESSION['view']='view';
+            echo "<script> window.alert('Bio-Data added successfully'); window.location.replace('viewBD.php');</script>";
+        }
+         else{
+            echo "$sql".mysqli_error();
+        }
     }
     else{
-    echo "$sql".mysqli_error();
+        echo "<script> window.alert('Error!! Input appropriate text for each field'); window.location.replace('addBD.php');</script>";
     }
 }
 else{

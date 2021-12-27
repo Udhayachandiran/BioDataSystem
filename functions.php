@@ -1,5 +1,4 @@
 <?php 
-session_start();
 function emptyInputRegister($uname,$email,$password,$repass){
     $result;
     if(empty($uname) || empty($email) || empty($password) || empty($repass)){
@@ -76,6 +75,11 @@ function createUser($conn,$uname,$email,$password){
     else{
         echo "$sql".mysqli_error();
     }   
+}
+
+function sD(){
+        
+    session_destroy();
 }
 
 

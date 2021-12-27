@@ -5,20 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>login include php</title>
 </head>
 <body>
 <?php
- //session_start();
 
 if(isset($_POST["submit"])){
+    session_start();
     require_once 'dbconn.php';
     
-
     $uname=$_POST['uname'];
     $password=$_POST['password'];
 
-    
     $sql="SELECT 'uname','password' FROM register WHERE uname='$uname' AND password='$password' ";
     //$rs = mysqli_query($conn,$sql);
     //$data= mysqli_fetch_assoc($rs,MYSQLI_NUM);
@@ -26,6 +24,7 @@ if(isset($_POST["submit"])){
     
     
     if(mysqli_num_rows($retval)> 0){
+        $_SESSION['name']=$_POST['uname'];
         //echo "<script> window.alert('login successful'); </script>";   
         header("location: login.php?error=none");
         exit();
@@ -36,7 +35,7 @@ if(isset($_POST["submit"])){
     }
 }
 else{
-    header("location: login.inc.php");
+    header("location: login.php");
     exit();
 }
 ?>

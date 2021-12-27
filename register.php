@@ -1,4 +1,12 @@
-<?php //session_start();
+<?php session_start();
+
+if(isset($_SESSION['name'])) {
+    header("Location: loggedin.php"); // redirects logged user to their homepage
+    exit; 
+}
+if(isset($_SESSION['register'])) {
+    echo '<script> alert("Already registered, please continue to login");  window.location.replace("login.php");</script>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,10 +37,10 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav item">
-                        <a href="login.php" class="nav-link">Login</a>
+                        <a href="login.php" class="nav-link"><strong>Login</strong></a>
                     </li>
                     <li class="nav item">
-                        <a href="register.php" class="nav-link">Register</a>
+                        <a href="register.php" class="nav-link"><strong>Register</strong></a>
                     </li>
                 </ul>
             </div>

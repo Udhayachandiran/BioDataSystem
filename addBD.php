@@ -1,4 +1,23 @@
 <?php session_start();
+
+if(isset($_SESSION['existview'])){
+    echo '<script> alert("Details already exists");  window.location.replace("viewBD.php");</script>';
+}
+require_once 'functions.php';
+if(isset($_GET['login'])){
+    sD();
+    header("Location: index.php"); // redirects them to homepage
+    exit;
+}
+
+if(isset($_SESSION['view'])) {
+    echo '<script> alert("Details already exists");  window.location.replace("viewBD.php");</script>';
+}
+
+if(!isset($_SESSION['name'])) {
+    header("Location: index.php"); // redirects them to homepage
+    exit; 
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,11 +31,11 @@
     <title>Bio-Data System</title>
     <link rel="icon" href="BDS_Title.png" type="image/icon type">
 </head>
-<body>
+<body>    
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-warning navbar-light py-3">
         <div class="container">
-            <a href="index.php" class="navbar-brand">
+            <a href="loggedin.php" class="navbar-brand">
                 <img src="BDS_Logo.png" alt="" width="60" height="60">
             </a>
 
@@ -29,13 +48,13 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav item">
-                        <a href="viewBD.php" class="nav-link">View Bio-Data</a>
-                    </li>
-                    <!-- <li class="nav item">
+                        <a href="viewBD.php" class="nav-link"><strong>View Bio-Data</strong></a>
+                    </li> 
+                     <!--<li class="nav item">
                         <a href="editBD.html" class="nav-link">Edit Bio-Data</a>
                     </li> -->
                     <li class="nav item">
-                        <a href="index.php" class="nav-link">Logout</a>
+                        <a href="addBD.php?login=out" class="nav-link"><strong>Logout</strong></a>
                     </li>
                 </ul>
             </div>

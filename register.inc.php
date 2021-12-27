@@ -1,4 +1,4 @@
-<?php //session_start();
+<?php session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,6 +47,7 @@ if(isset($_POST["submit"])){
     }
     else{
     createUser($conn,$uname,$email,$password);
+    $_SESSION['register']='register';
     }    
 }
 else{

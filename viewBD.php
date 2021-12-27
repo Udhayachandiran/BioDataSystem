@@ -1,13 +1,25 @@
 <?php 
     session_start();
-    $_SESSION["name"] = $_POST['uname'];
-    $username=$_POST['uname'];
-
+   
+    if(!isset($_SESSION['view']) && !isset($_SESSION['existview'])){
+        echo '<script> alert("Add details to view");  window.location.replace("addBD.php");</script>';
+    }
+    require_once 'functions.php';
+    if(isset($_GET['sd'])){
+        sD();
+        header("Location: index.php"); // redirects them to homepage
+        exit;
+    }
+    if(!isset($_SESSION['name'])) {
+        header("Location: index.php"); // redirects them to homepage
+        exit; 
+    }
+    $uname = $_SESSION['name'];
     require_once 'dbconn.php';
 
-    $sql="SELECT * FROM details WHERE name='$usname'";
+    $sql="SELECT * FROM details WHERE usname='$uname';";
     $retval= mysqli_query($conn,$sql);
-
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,10 +34,11 @@
     <link rel="icon" href="BDS_Title.png" type="image/icon type">
 </head>
 <body>
+   
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-warning navbar-light py-3">
         <div class="container">
-            <a href="index.php" class="navbar-brand">
+            <a href="loggedin.php" class="navbar-brand">
                 <img src="BDS_Logo.png" alt="" width="60" height="60">
             </a>
 
@@ -37,14 +50,14 @@
                     <li class="nav-item"> <h1 style="font-family: monospace;" class="text-dark text-center">BIO - DATA SYSTEM</h1> </li>
                 </ul>
                 <ul class="navbar-nav">
-                    <li class="nav item">
+                    <!--<li class="nav item">
                         <a href="addBD.php" class="nav-link">Add Bio-Data</a>
                     </li>
-                    <!-- <li class="nav item">
+                     <li class="nav item">
                         <a href="editBD.html" class="nav-link">Edit Bio-Data</a>
                     </li> -->
                     <li class="nav item">
-                        <a href="index.php" class="nav-link">Logout</a>
+                        <a href="viewBD.php?sd=yes" class="nav-link" ><strong>Logout</strong></a>
                     </li>
                 </ul>
             </div>
@@ -85,6 +98,9 @@
                                             echo "<p class='px-4'> Mothers' Occupation : {$row['mo']}</p>";
                                         }
                                     }
+                                    /*else{
+                                        echo '<script> alert("Add details to view");  window.location.replace("addBD.php");</script>';
+                                    }*/
                                 ?>
                             </div>
                         </div>
