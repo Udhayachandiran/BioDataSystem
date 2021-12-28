@@ -82,7 +82,7 @@
                                 <img class="viewStudent mb-3 image-fluid" src="BDS_Title.png" alt="" width="200">
                                 <?php
                                     if(mysqli_num_rows($retval) > 0){
-                                    while($row = mysqli_fetch_assoc($retval)){
+                                    $row = mysqli_fetch_assoc($retval);
                                             echo "<p class='px-4'> First Name : {$row['name']}</p>";
                                             echo "<p class='px-4'> Date Of Birth : {$row['dob']}</p>";
                                             echo "<p class='px-4'> Age : {$row['age']}</p>";
@@ -96,7 +96,7 @@
                                             echo "<p class='px-4'> Mothers' Name : {$row['moname']}</p>";
                                             echo "<p class='px-4'> Fathers' Occupation : {$row['fo']}</p>";
                                             echo "<p class='px-4'> Mothers' Occupation : {$row['mo']}</p>";
-                                        }
+                                        
                                     }
                                     /*else{
                                         echo '<script> alert("Add details to view");  window.location.replace("addBD.php");</script>';

@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>addBDinclude</title>
+    <link rel="stylesheet" href="style.css">
+    <title>editBD include php</title>
 </head>
 <body>
 <?php
@@ -27,16 +28,17 @@ if(isset($_POST["submit"])){
     $fo=$_POST['fo'];
     $moname=$_POST['moname'];
     $mo=$_POST['mo'];
+    echo $dob;
     
     if(ctype_alpha($name) && ctype_alpha($mt) && ctype_alpha($lk) && ctype_alpha($faname) && ctype_alpha($fo) && ctype_alpha($moname) && ctype_alpha($mo)){
         if($gender=='Select'){
-            echo "<script> window.alert('Error!! Select Gender'); window.location.replace('addBD.php');</script>";
+            echo "<script> window.alert('Error!! Select Gender'); window.location.replace('editBD.php');</script>";
         }
         else{
-        $sql="INSERT INTO details(usname,name,dob,age,gender,height,weight,addr,mt,lk,faname,fo,moname,mo) VALUES('$usname','$name','$dob',$age,'$gender',$height,$weight,'$addr','$mt','$lk','$faname','$fo','$moname','$mo')";
+        $sql="UPDATE `details` SET `usname`='$usname',`name`='$name',`dob`='$dob',`age`='$age',`gender`='$gender',`height`='$height',`weight`='$weight',`addr`='$addr',`mt`='$mt',`lk`='$lk',`faname`='$faname',`fo`='$fo',`moname`='$moname',`mo`='$mo' WHERE usname ='$usname'; ";
             if(mysqli_query($conn,$sql)){
                 $_SESSION['view']='view';
-                echo "<script> window.alert('Bio-Data added successfully'); window.location.replace('viewBD.php');</script>";
+                echo "<script> window.alert('Bio-Data edited successfully'); window.location.replace('viewBD.php');</script>";
             }
             else{
                 echo "$sql".mysqli_error();
@@ -44,11 +46,12 @@ if(isset($_POST["submit"])){
         }
     }
     else{
-        echo "<script> window.alert('Error!! Input appropriate text for each field'); window.location.replace('addBD.php');</script>";
+        echo "<script> window.alert('Error!! Input appropriate text for each field'); window.location.replace('editBD.php');</script>";
     }
+    
 }
 else{
-    header("location: addBD.php");
+    header("location: editBD.php");
     exit();
 }
 ?>

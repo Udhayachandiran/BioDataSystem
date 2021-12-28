@@ -84,6 +84,15 @@ require_once 'functions.php';
                             <!-- 3. To Edit -> Go to Edit -->
                         </p>
                     </h3>
+                    <h3>
+                        To Edit BioData :
+                        <!-- / Edit : -->
+                        <p class="lead text-dark">
+                            1. Go to <a href="editBD.php" class="text-dark">Edit BD</a> <br>
+                            2. Edit Your BioData <br>
+                            <!-- 3. To Edit -> Go to Edit -->
+                        </p>
+                    </h3>
                 </div>
                 <img class="image-fluid w-50 d-none d-sm-block mb-5" src="undraw_add_information_j2wg.svg" alt="">
             </div>

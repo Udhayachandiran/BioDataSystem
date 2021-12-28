@@ -47,10 +47,10 @@ if(!isset($_SESSION['name'])) {
                     <li class="nav-item"> <h1 style="font-family: monospace;" class="text-dark text-center">BIO - DATA SYSTEM</h1> </li>
                 </ul>
                 <ul class="navbar-nav">
-                    <li class="nav item">
+                    <!--<li class="nav item">
                         <a href="viewBD.php" class="nav-link"><strong>View Bio-Data</strong></a>
                     </li> 
-                     <!--<li class="nav item">
+                     <li class="nav item">
                         <a href="editBD.html" class="nav-link">Edit Bio-Data</a>
                     </li> -->
                     <li class="nav item">
@@ -70,7 +70,7 @@ if(!isset($_SESSION['name'])) {
             <div class="d-flex align-items-center justify-content-center">
                 <form class="py-5" action="addBD.inc.php" method="post">
                     <div class="mb-3 text-light">
-                        <label for="fname" class="form-label text">Name</label>
+                        <label for="fname" class="form-label text">Full Name</label>
                         <input type="text" class="form-control" name="name" required>
                     </div>
                     <div class="mb-3 text-light">
@@ -84,7 +84,7 @@ if(!isset($_SESSION['name'])) {
                     <div class="mb-3 text-light">
                         <label for="gender" class="form-label text">Gender</label>
                         <select class="form-select" name="gender" >
-                            <option selected>Select</option>
+                            <option selected>Select</option> 
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="Others">Others</option>
