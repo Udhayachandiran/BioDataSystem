@@ -28,7 +28,7 @@ if(isset($_POST["submit"])){
     $moname=$_POST['moname'];
     $mo=$_POST['mo'];
     
-    if(ctype_alpha($name) && ctype_alpha($mt) && ctype_alpha($lk) && ctype_alpha($faname) && ctype_alpha($fo) && ctype_alpha($moname) && ctype_alpha($mo)){
+    if(ctype_alpha(str_replace(' ', '', $name)) && ctype_alpha(str_replace(' ', '', $mt)) && ctype_alpha(str_replace(' ', '', $lk)) && ctype_alpha(str_replace(' ', '', $faname)) && ctype_alpha(str_replace(' ', '', $fo)) && ctype_alpha(str_replace(' ', '', $moname)) && ctype_alpha(str_replace(' ', '', $mo))){
         if($gender=='Select'){
             echo "<script> window.alert('Error!! Select Gender'); window.location.replace('addBD.php');</script>";
         }
