@@ -27,6 +27,10 @@
         header("Location: index.php"); // redirects them to homepage
         exit;
     }
+    if($_SESSION['name']=='admin' && $_SESSION['p']=='admin123'){
+        header("Location: admin.php"); // redirects logged user to their homepage
+        exit;
+    }
     if(!isset($_SESSION['name'])) {
         header("Location: index.php"); // redirects them to homepage
         exit; 

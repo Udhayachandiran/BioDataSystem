@@ -9,6 +9,10 @@ if(isset($_GET['login'])){
     header("Location: index.php"); // redirects them to homepage
     exit;
 }
+if($_SESSION['name']=='admin' && $_SESSION['p']=='admin123'){
+    header("Location: admin.php"); // redirects logged user to their homepage
+    exit;
+}
 
 if(isset($_SESSION['view'])) {
     echo '<script> alert("Details already exists");  window.location.replace("viewBD.php");</script>';

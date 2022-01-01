@@ -25,9 +25,15 @@ if(isset($_POST["submit"])){
     
     if(mysqli_num_rows($retval)> 0){
         $_SESSION['name']=$_POST['uname'];
-        //echo "<script> window.alert('login successful'); </script>";   
-        header("location: login.php?error=none");
-        exit();
+        $_SESSION['p']=$_POST['password'];
+        if($_SESSION['name']=='admin' && $_SESSION['p']=='admin123'){
+            echo '<script> window.alert("Logged in successfully");  window.location.replace("admin.php");</script>';
+        }
+        else{
+        echo '<script> window.alert("Logged in successfully");  window.location.replace("loggedin.php");</script>';
+        }   
+        //header("location: login.php?error=none");
+        //exit();
     }
     else{
         header("location: login.php?error=incorrectdet");

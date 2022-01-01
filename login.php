@@ -81,9 +81,7 @@ if(isset($_SESSION['name'])) {
                                             }
                                           </script>';
                                 }
-                                if($_GET["error"]=="none"){
-                                    echo '<script> window.alert("Logged in successfully");  window.location.replace("loggedin.php");</script>';
-                                    }
+                                //elseif($_GET["error"]=="none"){}
                             } 
                         ?>
                     </div>

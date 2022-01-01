@@ -6,6 +6,11 @@ require_once 'functions.php';
     $sql="SELECT * FROM details WHERE usname='$uname';";
     $retval= mysqli_query($conn,$sql);
     
+    if($_SESSION['name']=='admin' && $_SESSION['p']=='admin123'){
+        header("Location: admin.php"); // redirects logged user to their homepage
+        exit;
+    }
+    
     if(mysqli_num_rows($retval) > 0){
         $_SESSION['existview'] = 'existview';
     }
