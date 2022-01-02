@@ -22,7 +22,7 @@ if(isset($_SESSION['name'])) {
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md bg-warning navbar-light py-3">
         <div class="container">
-            <a href="index.php" class="navbar-brand">
+            <a href="login.php" class="navbar-brand">
                 <img src="BDS_Logo.png" alt="" width="60" height="60">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
@@ -47,22 +47,21 @@ if(isset($_SESSION['name'])) {
     <!-- Body -->
     <section class="bg-dark p-3 pt-4 text-light">
         <div class="container">
-            <h2 class="text-center text-light pt-4">Login</h2>
-            <p class="lead text-center text-light pb-4">Login with Registered Email</p>
+            <h2 class="text-center text-light pt-4">To Reset Password</h2>
+            <p class="lead text-center text-light pb-4">Enter your Registered Username and Email</p>
             <div class="d-md-flex align-items-center justify-content-center">
-                <form class="pb-5" method="POST" action="login.inc.php">
+                <form class="pb-5" method="POST" action="forpass.inc.php">
                     <div class="mb-3">
                       <label for="username" class="form-label text">Username</label>
                       <input type="text" class="form-control" id="username" name="uname" required>
                     </div>
                     <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input type="password" class="form-control" name="password" required> <br>
-                      <a class="text-light gfg" href="forpass.php">Forgot password?</a>
+                      <label for="email" class="form-label text">Email</label>
+                      <input type="text" class="form-control" id="email" name="email" required>
                     </div>
                     <div class="text-center pt-3">
-                            <input type="submit" value="Login" name="submit" class="btn btn-primary" ><br><br>
-                        <a class="text-light" href="register.php">New user? Register</a>
+                            <input type="submit" value="Reset Password" name="submit" class="btn btn-primary" ><br><br>
+                        
                         <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
                         <?php 
                             if(isset($_GET["error"])){

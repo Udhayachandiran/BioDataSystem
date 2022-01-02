@@ -77,6 +77,17 @@ function createUser($conn,$uname,$email,$password){
     }   
 }
 
+function updPass($conn,$password,$newpass,$e){
+    $sql="UPDATE `register` SET `password`='$newpass' WHERE email ='$e'; ";
+    if(mysqli_query($conn,$sql)){
+        echo "<script> alert('Password changed successfully');  window.location.replace('login.php'); </script>";  
+        
+    }
+    else{
+        echo "$sql".mysqli_error();
+    }   
+}
+
 function sD(){
         
     session_destroy();

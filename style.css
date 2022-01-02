@@ -72,6 +72,9 @@
     height: 45px;
     width: 220px;
 }
+.gfg{
+    text-decoration: none;
+}
 
 .cent {
     position: absolute;

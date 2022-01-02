@@ -22,7 +22,7 @@ if(isset($_SESSION['name'])) {
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md bg-warning navbar-light py-3">
         <div class="container">
-            <a href="index.php" class="navbar-brand">
+            <a href="login.php" class="navbar-brand">
                 <img src="BDS_Logo.png" alt="" width="60" height="60">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
@@ -33,12 +33,12 @@ if(isset($_SESSION['name'])) {
                     <li class="nav-item"> <h1 style="font-family: monospace;" class="text-dark text-center">BIO - DATA SYSTEM</h1> </li>
                 </ul>
                 <ul class="navbar-nav">
-                    <li class="nav item">
+                   <!-- <li class="nav item">
                         <a href="login.php" class="nav-link"><strong>Login</strong></a>
                     </li>
                     <li class="nav item">
                         <a href="register.php" class="nav-link"><strong>Register</strong></a>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
         </div>
@@ -47,29 +47,45 @@ if(isset($_SESSION['name'])) {
     <!-- Body -->
     <section class="bg-dark p-3 pt-4 text-light">
         <div class="container">
-            <h2 class="text-center text-light pt-4">Login</h2>
-            <p class="lead text-center text-light pb-4">Login with Registered Email</p>
+            <h2 class="text-center text-light pt-4">Create New Password</h2>
+            <p class="lead text-center text-light pb-4">Enter your new password and confirm it</p>
             <div class="d-md-flex align-items-center justify-content-center">
-                <form class="pb-5" method="POST" action="login.inc.php">
+                <form class="pb-5" method="POST" action="createpass.inc.php">
                     <div class="mb-3">
-                      <label for="username" class="form-label text">Username</label>
-                      <input type="text" class="form-control" id="username" name="uname" required>
+                      <label for="password" class="form-label text">New Password</label>
+                      <input type="password" class="form-control" id="password" name="password" required>
+                      <div style="font-size: small;" class="text-light mb-3">Password must be atleast 8 characters &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
                     </div>
                     <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input type="password" class="form-control" name="password" required> <br>
-                      <a class="text-light gfg" href="forpass.php">Forgot password?</a>
+                      <label for="cofpassword" class="form-label text">Confirm Password</label>
+                      <input type="password" class="form-control" id="cofpassword" name="cofpassword" required>
                     </div>
                     <div class="text-center pt-3">
-                            <input type="submit" value="Login" name="submit" class="btn btn-primary" ><br><br>
-                        <a class="text-light" href="register.php">New user? Register</a>
+                            <input type="submit" value="Reset Password" name="submit" class="btn btn-primary" ><br><br>
+                        
                         <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
                         <?php 
                             if(isset($_GET["error"])){
-                                if($_GET["error"]=="incorrectdet"){
-                                echo '<div class="alert">
-                                      <span class="closebtn">&times;</span> Incorrect details, user does not exists </div>
-                                      <script>
+                                if($_GET["error"]=="passwordnotlengthy"){
+                                    echo '<div class="alert">
+                                          <span class="closebtn">&times;</span> <strong>Password is not strong</strong> </div>
+                                          <script>
+                                            var close = document.getElementsByClassName("closebtn");
+                                            var i;
+    
+                                            for (i = 0; i < close.length; i++) {
+                                            close[i].onclick = function(){
+                                                var div = this.parentElement;
+                                                div.style.opacity = "0";
+                                                setTimeout(function(){ div.style.display = "none"; }, 600);
+                                            }
+                                            }
+                                          </script>';
+                                }
+                                if($_GET["error"]=="passwordsdontmatch"){
+                                    echo '<div class="alert">
+                                          <span class="closebtn">&times;</span> <strong>Passwords does not match</strong> </div>
+                                          <script>
                                             var close = document.getElementsByClassName("closebtn");
                                             var i;
     
