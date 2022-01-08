@@ -102,9 +102,20 @@
                         <label for="gender" class="form-label text">Gender</label>
                         <select class="form-select" name="gender" >
                             <option selected> <?php echo $gender; ?> </option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Others">Others</option>
+                            <?php 
+                            if($gender=='Male'){
+                                echo'<option value="Female">Female</option>
+                                <option value="Others">Others</option>';
+                            }
+                            elseif($gender=='Female'){
+                                echo'<option value="Male">Male</option>
+                                <option value="Others">Others</option>';
+                            }
+                            else{
+                                echo'<option value="Male">Male</option>
+                                <option value="Female">Female</option>';
+                            }
+                            ?>
                         </select>
                     </div>
                     <div class="mb-3 text-light">
